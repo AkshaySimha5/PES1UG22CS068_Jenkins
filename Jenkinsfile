@@ -1,15 +1,16 @@
 pipeline {
-    agent any 
+    agent any
+    
     stages {
         stage('Build') {
             steps {
-                sh 'g++ -o my_program my_specific_file.cpp' 
+                sh 'g++ -o my_program my_specific_file.cpp'
                 echo 'Build Stage Successful'
             }
         }
         stage('Test') {
             steps {
-                sh './my_program' 
+                sh './my_program'
                 echo 'Test Stage Successful'
             }
         }
@@ -19,9 +20,10 @@ pipeline {
             }
         }
     }
+    
     post {
         failure {
             echo 'Pipeline failed'
-        }
-    }
+        }
+    }
 }
